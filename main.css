@@ -1,0 +1,102 @@
+body{
+    margin: 0;
+    /* overflow: hidden; */
+}
+.container1{
+    /* visibility: hidden; */
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    margin-left: 19%;
+    background: #000;
+    
+}
+.door{
+    position: absolute;
+    height: 100%;
+    background: #f00;
+}
+.d1{
+    width: 0%;
+    
+}
+.d2{
+    width: 50%;
+    margin-left: 100%;
+}
+.faltu{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    margin-left: 100%;
+    background: #fff;
+    z-index: 4;
+}
+.buttPane{
+    position: absolute;
+    width: 160px;
+    height: 300px;
+    margin-top: 40%;
+    background: rgba(10, 77, 57, 0.774);
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.but{
+    margin-left: 38%;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-top: 12px;
+    color: #fff;
+    outline: none;
+    background: rgb(41, 60, 85);
+}
+.b1{
+    margin-top: 0px;
+}
+
+.container2{
+    position: absolute;
+    width: 10%;
+    height: 106%;
+    background: #000;
+    margin-left: 40%;
+    visibility: hidden;
+}
+#lin{
+    visibility: hidden;
+}
+.line{
+    /* visibility: hidden; */
+    position: absolute;
+    height: 10px;
+    width: 50%;
+    background: #000;
+    margin-left: 20%;
+}
+.l0{
+    margin-top: 0px;
+}
+.l1{
+    margin-top: 200px;
+}
+.l2{
+    margin-top: 400px;
+}
+.l3{
+    margin-top: 600px;
+}
+.l4{
+    margin-top: 800px;
+}
+.l5{
+    margin-top: 1000px;
+}
+
+.lift{
+    width: 100%;
+    height: 200px;
+    background: #ff0;
+    margin-top: 800px;   
+}

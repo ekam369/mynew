@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="cont1" class="container1">
+        <div id="d1" class="door d1"></div>
+        <div id="d2" class="door d2"></div>
+        <div class="faltu">
+            <div class="buttPane">
+                <button class="but b1" onclick="closess(this)" val="800">1</button>
+                <button class="but b2" onclick="closess(this)" val="600">2</button>
+                <button class="but b3" onclick="closess(this)" val="400">3</button>
+                <button class="but b4" onclick="closess(this)" val="200">4</button>
+                <button class="but b5" onclick="closess(this)" val="0">5</button> 
+            </div>
+        </div>
+    </div>
+    <div id="cont2" class="container2">
+        <div id="lift" class="lift"></div>
+    </div>
+    <div id="lin">
+            <div class="line l0"></div>
+            <div class="line l1"></div>
+            <div class="line l2"></div>
+            <div class="line l3"></div>
+            <div class="line l4"></div>
+            <div class="line l5"></div>
+    </div>
+    
+    <script>
+        function closess(box){
+            document.getElementById("d1").style.width = "0px";
+            document.getElementById("d2").style.marginLeft = "1100px";
+            box.style.background = "#ff0";
+            var wid = 0;
+            var ml = 1100;
+            var tt = setInterval(function(){
+                document.getElementById("d1").style.width = `${wid}px`;
+                document.getElementById("d2").style.marginLeft = `${ml}px`;
+                if(wid<560){
+                    wid++;
+                }
+                if(ml>560){
+                    ml--;
+                }
+                if(ml==560){
+                    box.style.background = "rgb(41, 60, 85)";
+                    var pt = setInterval(function(){
+                        document.getElementById("cont1").style.visibility = "hidden";
+                        document.getElementById("cont2").style.visibility = "visible";
+                        document.getElementById("lin").style.visibility = "visible";
+                        clearInterval(pt);
+                        console.log("s2");
+                        clearInterval(tt);
+                    },1500)
+                }
+                console.log("s1");
+            })
+
+            var ss = setInterval(function(){
+                var p =  document.getElementById("lift");
+                var style = p.currentStyle || window.getComputedStyle(p);
+                var st = style.marginTop;
+                var mTop="";
+                for(i=0; i<3; i++){
+                    mTop += st[i];
+                }
+                var MTop = parseInt(mTop);
+                var vall = box.getAttribute("val");
+                var tt = setInterval(function(){
+                    if(MTop>vall)
+                        MTop--;
+                    if(MTop<vall)
+                        MTop++;
+                    if(MTop==vall)
+                        {
+                            clearInterval(tt);
+                        }
+                        var pt = setInterval(function(){
+                            document.getElementById("cont1").style.visibility = "visible";
+                            document.getElementById("cont2").style.visibility = "hidden";
+                            document.getElementById("lin").style.visibility = "hidden";
+                            clearInterval(ss);
+                            console.log("s7");
+                            clearInterval(pt);
+
+                        },5000);
+                    p.style.marginTop = `${MTop}px`;
+                    console.log("s4")
+                })
+                console.log("s3");
+            },4000)
+
+            var vt = setInterval(function(){
+                console.log("s5");
+                
+                var dt = setInterval(function(){
+                    document.getElementById("d1").style.width = `${wid}px`;
+                    document.getElementById("d2").style.marginLeft = `${ml}px`;
+                    if(wid>0)
+                        wid--;
+                    if(ml<1100) 
+                        ml++;
+                    if(wid==0)
+                        clearInterval(dt);
+                })
+            },8500)
+        }
+    </script>
+</body>
+</html>

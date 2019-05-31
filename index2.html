@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main2.css">
+</head>
+<body>
+    <div class="container">
+        <div id="lift" class="lift"></div>
+    </div>
+    
+    <div class="buttp">
+        <button class="butt b1" onclick="lif(this)" val="0">5</button>
+        <button class="butt b2" onclick="lif(this)" val="200">4</button>
+        <button class="butt b3" onclick="lif(this)" val="400">3</button>
+        <button class="butt b4" onclick="lif(this)" val="600">2</button>
+        <button class="butt b5" onclick="lif(this)" val="800">1</button>
+    </div>
+
+    <script>
+        let arr = []; 
+        function lif(box){
+            var p =  document.getElementById("lift");
+            var coll = document.getElementsByClassName("butt");
+            console.log(coll[0]);
+            var style = p.currentStyle || window.getComputedStyle(p);
+            var st = style.marginTop;
+            var mTop="";
+            for(i=0; i<3; i++){
+                mTop += st[i];
+            }
+            var MTop = parseInt(mTop);
+            var vall = box.getAttribute("val");
+            var tt = setInterval(function(){
+                if(MTop>vall)
+                {
+                    MTop--;
+                    for(i=0; i<5; i++){
+                        coll[i].disabled = true;
+                        console.log("M++");
+                    }
+                }
+                if(MTop<vall)
+                {
+                    MTop++;
+                    for(i=0; i<5; i++){
+                        coll[i].disabled = true;
+                        console.log("M--");
+                    }
+                }
+                if(MTop==vall)
+                {
+                    clearInterval(tt);
+                    for(i=0; i<5; i++){
+                        coll[i].disabled = false;
+                    }
+                    console.log("M");
+                }
+
+                p.style.marginTop = `${MTop}px`;
+            })
+        }
+    </script>
+</body>
+</html>
